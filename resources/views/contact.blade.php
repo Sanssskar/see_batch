@@ -1,6 +1,6 @@
 <x-frontend-layout>
     <section class="pt-10">
-        <div class="container">
+        <div class="max-w-4xl mx-auto">
             <h1 class="mb-3 text-(--secondary) text-7xl font-bold text-center">Get In <span class="text-(--primary)">Touch</span></h1>
             <p class="mb-3 text-center">Have a question, idea, or project? We're just a message away.</p>
             <form action="{{route('contact.store')}}" method="POST">
@@ -19,10 +19,10 @@
                 </div>
                 <div>
                     <label class="text-(--primary) font-semibold" for="message">Message</label>
-                    <textarea class="border w-full" name="message" id="message" cols="30" rows="10"></textarea>
+                    <textarea class="border w-full" name="message" id="message" cols="20" rows="5"></textarea>
                 </div>
                 <button class="bg-(--primary) hover:bg-(--secondary) py-5 px-7 rounded-xl text-white font-semibold duration-300" type="submit">Submit </button>
-            </form>
+            </form >
         </div>
     </section>
 </x-frontend-layout>

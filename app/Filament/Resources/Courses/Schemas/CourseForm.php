@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Courses\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Section;
@@ -19,12 +20,15 @@ class CourseForm
                     ->columnSpanFull()
                     ->schema([
                         TextInput::make('title')
-                        ->columnSpanFull()
+                            ->columnSpanFull()
                             ->required(),
-                            TextInput::make('price')
-                                ->required(),
-                            DatePicker::make('date')
-                                ->required(),
+                        TextInput::make('price')
+                            ->required(),
+                        DatePicker::make('date')
+                            ->required(),
+                        FileUpload::make('image')
+                            ->image()
+                            ->nullable(),
                         Textarea::make('description')
                             ->required()
                             ->columnSpanFull(),

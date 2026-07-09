@@ -13,8 +13,8 @@
                 @foreach ($courses as $course)
                     <div class="shadow-md">
                     <div class="overflow-hidden rounded-md">
-                        <img class="hover:scale-105 duration-300" src="https://codeit.com.np/storage/course-featured/01KN8TZJBK25Q1M3WFGXAPR034.webp"
-                            alt="">
+                        <img class="hover:scale-105 duration-300" src="{{asset(Storage::url($course->image))}}"
+                            alt="{{$course->title}} Image">
                     </div>
                     <div class="p-5">
                         <h2 class="font-semibold text-(--primary) text-lg">{{$course->title}}</h2>
