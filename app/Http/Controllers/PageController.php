@@ -12,7 +12,7 @@ class PageController extends Controller
     public function home()
     {
         $courses = Course::all();
-        return view('home',compact('courses'));
+        return view('home', compact('courses'));
     }
     public function about()
     {
@@ -29,15 +29,22 @@ class PageController extends Controller
         return view('contact');
     }
 
-    public function contact_store(Request $request){
+    public function contact_store(Request $request)
+    {
 
-    $contact = new Contact();
-    $contact->name = $request->full_name;
-    $contact->phone = $request->number;
-    $contact->address = $request->address;
-    $contact->message = $request->message;
-    $contact->save();
-    toast("Form Submitted Sucessfully","success");
-    return redirect('contact');
+        $contact = new Contact();
+        $contact->name = $request->full_name;
+        $contact->phone = $request->number;
+        $contact->address = $request->address;
+        $contact->message = $request->message;
+        $file = $request->image;
+        if($file){
+            $file_name = time().".".$file->getClientOriginalExtension(); //code.webp 
+            $file->move('/storage', $file_name);
+            $contact->image = $file_name;
+        }
+        $contact->save();
+        toast("Form Submitted Sucessfully", "success");
+        return redirect('contact');
     }
 }

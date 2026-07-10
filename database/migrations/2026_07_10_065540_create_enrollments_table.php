@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); //255
-            $table->string('phone');
-            $table->string('address');
-            $table->text('message');
-            $table->string('image')->nullable();
+            $table->string('name');
+            $table->string('email');
+            $table->foreignId('course_id')->constrained();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('enrollments');
     }
 };
