@@ -40,7 +40,7 @@ class PageController extends Controller
         $file = $request->image;
         if($file){
             $file_name = time().".".$file->getClientOriginalExtension(); //code.webp 
-            $file->move('/storage', $file_name);
+            $file->move('storage', $file_name);
             $contact->image = $file_name;
         }
         $contact->save();
