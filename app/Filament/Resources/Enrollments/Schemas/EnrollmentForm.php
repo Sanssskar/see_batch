@@ -19,7 +19,9 @@ class EnrollmentForm
                     ->email()
                     ->required(),
                 Select::make('course_id')
-                ->relationship('course','title')
+                    ->relationship('course', 'title')
+                    ->searchable()
+                    ->preload()
                     ->required(),
             ]);
     }
